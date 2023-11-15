@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% load static %}  {% block content %} 
+<!--En esta página se los usuarios podran registrarse para poder posteriormente iniciar sesión -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrate</title>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-dark text-white">
+    <div class="container rounded mt-5">
+        <div class="row">
+            <div class="col">
+                <img class="w-100 my-5 rounded" src="{% static 'images/Recycling-bro.png' %}" alt="">
+            </div>
+            <div class="col">
+                <h2 class="fw-bold text-center pt-5 mb-5">Registrese aquí</h2>
+                <!--Registro-->  
+                <form method="post">
+                    <div class="mb-4">
+                         
+                    </div>
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" class="form-check-input" name="conectado" id="">
+                        <label for="conectado" class="form-check-label">Acepto terminos y condiciones</label>
+                    </div>
+                    <div class="d-grid"><button type="submit" class="btn btn-primary" >Registrarse</button></div>
+                    <div class="my-3">
+                        <span>Ya tienes una cuenta? <a href="{%url 'iniciar_sesion'%}">Inicia sesión</a></span>
+                    </div>
+                </form>  
+                <!--Registro con redes sociales-->
+                <div class="container w-100 my-5">
+                    <div class="row text-center">
+                        <div class="col-12">También puedes registrarte con:</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-outline-primary w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/600px-Facebook_f_logo_%282019%29.svg.png" alt="" width="30">
+                                    </div>
+                                    <div class="col-9 text-center">
+                                        Facebook
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-danger w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2">
+                                        <img src="data:image/png;base64,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" alt="" width="30">
+                                    </div>
+                                    <div class="col-9 text-center">
+                                        Google
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock content %}

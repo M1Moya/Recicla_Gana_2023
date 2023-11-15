@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% load static %}  {% load crispy_forms_tags %} {% block content %}
+<!--En esta pagina se ingresaran los datos del usuario para iniciar sesión -->
+    <div class="container rounded mt-5 text-white">
+        <div class="row">
+            <div class="col">
+                <img class="w-100 my-5 rounded" src="{% static 'images/Recycling-amico.png' %}" alt="">
+            </div>
+            <div class="col">
+                <h2 class="fw-bold text-center pt-5 mb-5">Inicia sesión en ReciclaGana</h2>
+                
+                <!--Login-->
+                {% if rut_error %}
+                  <p style="color: red;">RUT inválido</p>
+                {% endif %}
+
+                <div class="container text-center mt-5">      
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        {{ form|crispy}}
+                        
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" class="form-check-input" name="conectado" id="">
+                            <label for="conectado" class="form-check-label">Mantenerme conectado</label>
+                        </div>
+                        <div class="grid"><input type="submit" class="btn btn-primary" value="Iniciar Sesión"></input></div>
+                        <div class="my-3">
+                            <span>¿No tienes una cuenta?&nbsp;&nbsp;<a href="">Registrate aquí</a></span>
+                            <br>
+                            <span>¿Olvidaste tu contraseña?&nbsp;&nbsp;<a href="#">Recuperala aquí</a></span>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div> 
+{% endblock content %}

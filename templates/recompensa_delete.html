@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="container mt-5 text-white">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Eliminar Recompensa</h2>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <form action="" method="post"> 
+                {% csrf_token %} <!--Metodo de protección-->
+                <p>¿Desea eliminar por completo y con total seguridad el producto "{{ canjeables.recompensa }}"?</p> 
+                <input class="btn btn-primary" type="submit" value="Eliminar">
+                <a href="{% url 'recompensa' %}" class="btn btn-danger">Cancelar</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+    <h1 class="text-white">Recompensas</h1>
+    <a class="btn btn-success" href="{% url 'new_recompensa'%}">Agregar Recompensa</a> <!-- Generar un boton que lleve al template de añadir un producto-->
+    <br>
+    <div class="row text-white">
+        <div class="col-12 mt-4">
+          <table class="table table-bordered text-white">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Recompensa</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Valor de Puntos</th>
+                <th colspan="2">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for canjeables in canjeables_list %}
+                <tr>
+                  <td>{{ canjeables.id_recom }}</td>
+                  <td>{{ canjeables.recompensa }}</td>
+                  <td>{{ canjeables.categoria }}</td>
+                  <td>{{ canjeables.puntos }}</td>
+                  <td><a href="{% url 'edit_recompensa' canjeables.id_recom %}" class="btn btn-primary">Editar</a></td>
+                  <td><a href="{% url 'delete_recompensa' canjeables.id_recom %}" class="btn btn-danger">Eliminar</a></td>  
+                </tr>  
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
