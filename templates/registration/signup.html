@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %}  {% block content %} 
+{% extends "base.html" %} {% load static %}  {% load crispy_forms_tags %} {% block content %} 
 <!--En esta página se los usuarios podran registrarse para poder posteriormente iniciar sesión -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,8 @@
                 <!--Registro-->  
                 <form method="post">
                     <div class="mb-4">
-                         
+                        {% csrf_token %}
+                        {{ form|crispy }}     
                     </div>
                     <div class="mb-4 form-check">
                         <input type="checkbox" class="form-check-input" name="conectado" id="">
@@ -29,7 +30,7 @@
                     </div>
                     <div class="d-grid"><button type="submit" class="btn btn-primary" >Registrarse</button></div>
                     <div class="my-3">
-                        <span>Ya tienes una cuenta? <a href="{%url 'iniciar_sesion'%}">Inicia sesión</a></span>
+                        <span>Ya tienes una cuenta? <a href="{%url 'login'%}">Inicia sesión</a></span>
                     </div>
                 </form>  
                 <!--Registro con redes sociales-->
