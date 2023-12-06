@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+    <h1 class="text-white">Materiales Reciclables</h1>
+    {%if user.is_superuser%}
+    <a class="btn btn-success" href="{% url 'new_material'%}">Agregar Material</a> <!-- Generar un boton que lleve al template de añadir un producto-->
+    {%endif%}
+    <br>
+    <div class="row text-white">
+        <div class="col-12 mt-4">
+          <table class="table table-bordered text-white">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Material</th>
+                <th scope="col">Valor de Puntos</th>
+                {%if user.is_superuser%}
+                <th colspan="2">Opciones</th>
+                {%endif%}
+              </tr>
+            </thead>
+            <tbody>
+              {% for material in material_list %}
+                <tr>
+                  <td>{{ material.id }}</td>
+                  <td>{{ material.material }}</td>
+                  <td>{{ material.valor_puntos }}</td>
+                  {% if user.is_superuser%}
+                  <td><a href="{% url 'edit_material' material.id %}" class="btn btn-primary">Editar</a></td>
+                  <td><a href="{% url 'delete_material' material.id %}" class="btn btn-danger">Eliminar</a></td>  
+                  {%endif%}
+                </tr>  
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

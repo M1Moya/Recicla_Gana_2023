@@ -31,3 +31,23 @@ class DeleteRecompensa(DeleteView):
     template_name = "recompensa_delete.html"
     success_url  = reverse_lazy("recompensa")
 
+class ListMaterialView(ListView):
+    model = Material
+    template_name = "material_list.html"
+
+class EditMaterial(UpdateView):
+    model = Material
+    template_name = "material_edit.html"
+    fields = ["material", "valor_puntos"]
+    success_url = reverse_lazy("material")
+
+class DeleteMaterial(DeleteView):
+    model = Material
+    template_name = "material_delete.html"
+    success_url  = reverse_lazy("material")
+
+class NewMaterial(CreateView):
+    model = Material
+    template_name = "material_new.html"
+    fields = "__all__"
+    success_url = reverse_lazy("material")

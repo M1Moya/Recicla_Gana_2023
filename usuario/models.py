@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Material(models.Model):
-    id = models.CharField(primary_key=True, max_length=5, db_column='Id_Material')
+    id = models.AutoField(primary_key=True,unique=True, db_column='Id_Material')
     material = models.CharField(max_length=40, db_column='Material')
     valor_puntos = models.IntegerField(db_column='Valor_Unitario_Puntos')
 
