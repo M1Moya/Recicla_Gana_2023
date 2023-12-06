@@ -30,3 +30,4 @@ class DeleteRecompensa(DeleteView):
     model = Canjeables
     template_name = "recompensa_delete.html"
     success_url  = reverse_lazy("recompensa")
+

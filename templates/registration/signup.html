@@ -18,7 +18,9 @@
             </div>
             <div class="col">
                 <h2 class="fw-bold text-center pt-5 mb-5">Registrese aquí</h2>
-                <!--Registro-->  
+                <!--Registro-->
+                <p id="validar_rut"></p>
+                <br>  
                 <form method="post">
                     <div class="mb-4">
                         {% csrf_token %}
@@ -28,7 +30,7 @@
                         <input type="checkbox" class="form-check-input" name="conectado" id="">
                         <label for="conectado" class="form-check-label">Acepto terminos y condiciones</label>
                     </div>
-                    <div class="d-grid"><button type="submit" class="btn btn-primary" >Registrarse</button></div>
+                    <div class="d-grid"><button id="registrar" type="submit" class="btn btn-primary" >Registrarse</button></div>
                     <div class="my-3">
                         <span>Ya tienes una cuenta? <a href="{%url 'login'%}">Inicia sesión</a></span>
                     </div>
@@ -70,6 +72,8 @@
     </div>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/validar_rut.js' %}"></script>
+    <script src="{% static 'js/funcion_validar.js' %}"></script>
 </body>
 </html>
 {% endblock content %}

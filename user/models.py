@@ -28,11 +28,10 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     rut = models.CharField("Rut", primary_key=True, max_length=12)    
     password = models.CharField("Contraseña", max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.IntegerField()
     nombre = models.CharField("Nombre",max_length=150, null=False)
     apellido = models.CharField("Apellido",max_length=150, null=False)
     email = models.CharField(unique=True , max_length=254, null=False)
-    is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False,)
     is_active = models.BooleanField(default=True)
     puntos = models.IntegerField("Puntos", blank=True, null=True)
     objects = UsuarioManager()
@@ -43,8 +42,3 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return f'{self.rut}, {self.nombre}, {self.apellido}'
     
-    def has_perm(self, perm,obj=None):
-        return True
-    
-    def has_module_perms(self, app_label):
-        return True
