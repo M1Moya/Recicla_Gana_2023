@@ -21,12 +21,12 @@
             <tbody>
               {% for material in material_list %}
                 <tr>
-                  <td>{{ material.id }}</td>
+                  <td>{{ material.id_material }}</td>
                   <td>{{ material.material }}</td>
                   <td>{{ material.valor_puntos }}</td>
                   {% if user.is_superuser%}
-                  <td><a href="{% url 'edit_material' material.id %}" class="btn btn-primary">Editar</a></td>
-                  <td><a href="{% url 'delete_material' material.id %}" class="btn btn-danger">Eliminar</a></td>  
+                  <td><a href="{% url 'edit_material' material.id_material %}" class="btn btn-primary">Editar</a></td>
+                  <td><a href="{% url 'delete_material' material.id_material %}" class="btn btn-danger">Eliminar</a></td>  
                   {%endif%}
                 </tr>  
               {% endfor %}

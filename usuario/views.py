@@ -49,5 +49,5 @@ class DeleteMaterial(DeleteView):
 class NewMaterial(CreateView):
     model = Material
     template_name = "material_new.html"
-    fields = "__all__"
+    fields = ["material", "valor_puntos"]
     success_url = reverse_lazy("material")
