@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from user.models import Usuario
 from .models import*
 
 # Create your views here.
@@ -55,3 +56,15 @@ class NewMaterial(CreateView):
     template_name = "material_new.html"
     fields = ["material", "valor_puntos"]
     success_url = reverse_lazy("material")
+
+#Vista para poder Ver los Usuarios
+class ListUsuarios(ListView):
+    model = Usuario
+    template_name = "usuario_list.html"
+
+#Vista de Suma de Puntos al Usuario
+class SumaPuntos(UpdateView):
+    model = Usuario
+    template_name = 'usuario_suma_puntos.html'
+    fields = ['rut', 'nombre', 'apellido', 'puntos']
+    success_url = reverse_lazy('usuarios')

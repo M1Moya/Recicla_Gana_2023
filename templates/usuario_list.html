@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+    <h1 class="text-white">Usuarios</h1>
+    <br>
+    <!-- Tabla de Usuarios -->
+    <div class="row text-white">
+        <div class="col-12 mt-4">
+          <table class="table table-bordered text-white">
+            <thead>
+              <tr>
+                <th scope="col">Rut</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Puntos</th>
+                <th colspan="1">Opcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Visualizacion de los Usuarios existentes en la Base de Datos-->
+              {% for usuario in usuario_list %}
+                <tr>
+                  <td>{{ usuario.rut }}</td>
+                  <td>{{ usuario.nombre }}</td>
+                  <td>{{ usuario.email }}</td>
+                  <td>{{ usuario.puntos}}</td>              
+                  <!-- Botones que permiten la Suma de Puntos -->
+                  <td><a href="" class="btn btn-primary">Sumar Puntos</a></td>
+                </tr>  
+              {% endfor %}
+              <!-- Fin de la Visualización-->
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
