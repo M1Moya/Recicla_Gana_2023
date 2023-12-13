@@ -1,6 +1,7 @@
 from django import forms
 from .models import *
 
+#Formulario de Creacion de Usuario en base al Modelo Usuario personalizado
 class FormularioUsuarioNuevo(forms.ModelForm):
     password1 = forms.CharField(label= "Contraseña", widget= forms.PasswordInput(
         attrs={

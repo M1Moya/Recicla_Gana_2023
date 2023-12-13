@@ -5,6 +5,8 @@ from user.forms import FormularioUsuarioNuevo
 from user.models import Usuario
 
 # Create your views here.
+
+#Vista para la Creación de Nuevos Usuarios
 class SignUpView(CreateView):
     model = Usuario
     form_class = FormularioUsuarioNuevo

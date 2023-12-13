@@ -10,10 +10,13 @@
     <div class="row mt-3">
         <div class="col-md-12">
             <form action="" method="post">
+                <!-- Metodo de Protección -->
                 {% csrf_token %} 
+                <!-- Generación de Formulario para la nueva Recompensa -->
                 {{ form|crispy }}
                 <input class="btn btn-primary" type="submit" value="Agregar Recompensa">
-            </div>
+            </form>    
+        </div>
     </div>
 </div>
 {% endblock content %}

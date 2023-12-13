@@ -31,21 +31,25 @@ class DeleteRecompensa(DeleteView):
     template_name = "recompensa_delete.html"
     success_url  = reverse_lazy("recompensa")
 
+#Vista para poder Ver los Materiales Reciclables existentes
 class ListMaterialView(ListView):
     model = Material
     template_name = "material_list.html"
 
+#Vista para poder Editar los Materiales Reciclables
 class EditMaterial(UpdateView):
     model = Material
     template_name = "material_edit.html"
     fields = ["material", "valor_puntos"]
     success_url = reverse_lazy("material")
 
+#Vista para poder Eliminar un Material Reciclable
 class DeleteMaterial(DeleteView):
     model = Material
     template_name = "material_delete.html"
     success_url  = reverse_lazy("material")
 
+#Vista para poder Agregar nuevos Materiales Reciclables
 class NewMaterial(CreateView):
     model = Material
     template_name = "material_new.html"

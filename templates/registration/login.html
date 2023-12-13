@@ -15,9 +15,10 @@
 
                 <div class="container text-center mt-5">      
                     <form method="post" action="{% url 'login' %}">
+                        <!-- Metodo de Protección -->
                         {% csrf_token %}
+                        <!-- Generacion de Formulario para la Creación de un Nuevo Usuario -->
                         {{ form|crispy}}
-                        
                         <div class="mb-4 form-check">
                             <input type="checkbox" class="form-check-input" name="conectado" id="">
                             <label for="conectado" class="form-check-label">Mantenerme conectado</label>

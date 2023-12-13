@@ -8,11 +8,14 @@
     </div>
     <div class="row mt-3">
         <div class="col-md-12">
-            <form action="" method="post"> 
-                {% csrf_token %} <!--Metodo de protección-->
+            <form action="" method="post">
+                <!-- Metodo de protección --> 
+                {% csrf_token %}
+                <!-- Confirmación de Eliminación del Material --> 
                 <p>¿Desea eliminar por completo y con total seguridad el producto "{{ material.material }}"?</p> 
                 <input class="btn btn-primary" type="submit" value="Eliminar">
                 <a href="{% url 'material' %}" class="btn btn-danger">Cancelar</a>
+            </form>
         </div>
     </div>
 </div>

@@ -1,36 +1,48 @@
 {% extends "base.html" %} {% block content %}
 <div class="container mt-5">
     <h1 class="text-white">Recompensas</h1>
+    <!-- Identificación de sí usuario es un superusuario -->
     {%if user.is_superuser%}
-    <a class="btn btn-success" href="{% url 'new_recompensa'%}">Agregar Recompensa</a> <!-- Generar un boton que lleve al template de añadir un producto-->
+    <!-- Generar un boton que lleve al template de añadir una Recompensa-->
+    <a class="btn btn-success" href="{% url 'new_recompensa'%}">Agregar Recompensa</a> 
     {%endif%}
+    <!-- Fin de la Identificacion-->
     <br>
+    <!-- Tabla de Las Recompensas-->
     <div class="row text-white">
         <div class="col-12 mt-4">
           <table class="table table-bordered text-white">
             <thead>
               <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Material</th>
+                <th scope="col">Recompensa</th>
+                <th scope="col">Categoría</th>
                 <th scope="col">Valor de Puntos</th>
+                <!-- Identificación de sí usuario es un superusuario -->
                 {%if user.is_superuser%}
                 <th colspan="2">Opciones</th>
                 {%endif%}
+                <!-- Fin de la Identificación -->
               </tr>
             </thead>
             <tbody>
+              <!-- Visualizacion de las Recompensas existentes en la Base de Datos-->
               {% for canjeables in canjeables_list %}
                 <tr>
                   <td>{{ canjeables.id_recom }}</td>
                   <td>{{ canjeables.recompensa }}</td>
                   <td>{{ canjeables.categoria }}</td>
                   <td>{{ canjeables.puntos }}</td>
+                  <!-- Identificación de sí usuario es un superusuario -->
                   {% if user.is_superuser%}
+                  <!-- Botones que permiten la Modificación y la Eliminación de las Recompensas existentes -->
                   <td><a href="{% url 'edit_recompensa' canjeables.id_recom %}" class="btn btn-primary">Editar</a></td>
                   <td><a href="{% url 'delete_recompensa' canjeables.id_recom %}" class="btn btn-danger">Eliminar</a></td>  
                   {%endif%}
+                  <!-- Fin de la Identificación -->
                 </tr>  
               {% endfor %}
+              <!-- Fin de la Visualización-->
             </tbody>
           </table>
         </div>

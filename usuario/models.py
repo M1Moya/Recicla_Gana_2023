@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+# Modelo de Materiales Reciclables
 class Material(models.Model):
     id_material = models.AutoField(primary_key=True,unique=True, db_column='Id_Material', null=False)
     material = models.CharField(max_length=40, db_column='Material')
@@ -13,6 +15,7 @@ class Material(models.Model):
     def __str__(self):
         return self.material
     
+# Modelo de Recompensas    
 class Canjeables(models.Model):
     id_recom = models.AutoField(primary_key=True, unique=True, db_column="Id_Recompensa", null=False)
     recompensa = models.CharField(db_column="Recompensa", max_length=40, null=False)

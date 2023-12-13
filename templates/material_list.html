@@ -1,10 +1,14 @@
 {% extends "base.html" %} {% block content %}
 <div class="container mt-5">
     <h1 class="text-white">Materiales Reciclables</h1>
+    <!-- Identificación de sí usuario es un superusuario -->
     {%if user.is_superuser%}
-    <a class="btn btn-success" href="{% url 'new_material'%}">Agregar Material</a> <!-- Generar un boton que lleve al template de añadir un producto-->
+    <!-- Generar un boton que lleve al template de añadir un Material -->
+    <a class="btn btn-success" href="{% url 'new_material'%}">Agregar Material</a> 
     {%endif%}
+    <!-- Finalización de Identificación-->
     <br>
+    <!-- Tabla de Materiales Reciclables -->
     <div class="row text-white">
         <div class="col-12 mt-4">
           <table class="table table-bordered text-white">
@@ -13,23 +17,30 @@
                 <th scope="col">Id</th>
                 <th scope="col">Material</th>
                 <th scope="col">Valor de Puntos</th>
+                <!-- Identificación de sí usuario es un superusuario -->
                 {%if user.is_superuser%}
                 <th colspan="2">Opciones</th>
                 {%endif%}
+                <!-- Finalización de Identificación-->
               </tr>
             </thead>
             <tbody>
+              <!-- Visualizacion de las Recompensas existentes en la Base de Datos-->
               {% for material in material_list %}
                 <tr>
                   <td>{{ material.id_material }}</td>
                   <td>{{ material.material }}</td>
                   <td>{{ material.valor_puntos }}</td>
+                  <!-- Identificación de sí usuario es un superusuario -->
                   {% if user.is_superuser%}
+                  <!-- Botones que permiten la Modificación y Eliminación -->
                   <td><a href="{% url 'edit_material' material.id_material %}" class="btn btn-primary">Editar</a></td>
                   <td><a href="{% url 'delete_material' material.id_material %}" class="btn btn-danger">Eliminar</a></td>  
                   {%endif%}
+                  <!-- Finalización de Identificación-->
                 </tr>  
               {% endfor %}
+              <!-- Fin de la Visualización-->
             </tbody>
           </table>
         </div>

@@ -23,7 +23,9 @@
                 <br>  
                 <form method="post">
                     <div class="mb-4">
+                        <!-- Metodo de Protección -->
                         {% csrf_token %}
+                        <!-- Generacion de Formulario para el Inicio de Sesión para un Usuario Existente -->
                         {{ form|crispy }}     
                     </div>
                     <div class="mb-4 form-check">

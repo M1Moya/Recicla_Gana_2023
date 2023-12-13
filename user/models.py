@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 # Create your models here.
+
+#Personalizacion de Usuario predefinido de Django nivel Base
 class UsuarioManager(BaseUserManager):
     def _create_user(self, rut, email, nombre, password, is_staff, is_superuser, **extra_fields):
         user = self.model(
@@ -24,6 +26,7 @@ class UsuarioManager(BaseUserManager):
     def create_superuser(self, rut, email, nombre, password= None, **extra_fields):
         return self._create_user(rut, email, nombre, password, True, True, **extra_fields)
 
+#Personalizacion de Usuario predefinido de Django
 class Usuario(AbstractBaseUser, PermissionsMixin):
     rut = models.CharField("Rut", primary_key=True, max_length=12)    
     password = models.CharField("Contraseña", max_length=128)
