@@ -24,7 +24,7 @@
                   <td>{{ usuario.email }}</td>
                   <td>{{ usuario.puntos}}</td>              
                   <!-- Botones que permiten la Suma de Puntos -->
-                  <td><a href="" class="btn btn-primary">Sumar Puntos</a></td>
+                  <td><a href="{% url 'suma_puntos' usuario.rut %}" class="btn btn-primary">Sumar Puntos</a></td>
                 </tr>  
               {% endfor %}
               <!-- Fin de la Visualización-->

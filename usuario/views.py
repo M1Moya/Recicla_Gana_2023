@@ -66,5 +66,5 @@ class ListUsuarios(ListView):
 class SumaPuntos(UpdateView):
     model = Usuario
     template_name = 'usuario_suma_puntos.html'
-    fields = ['rut', 'nombre', 'apellido', 'puntos']
+    fields = ['email', 'nombre', 'apellido', 'puntos']
     success_url = reverse_lazy('usuarios')

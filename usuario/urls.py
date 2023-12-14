@@ -13,5 +13,5 @@ urlpatterns = [
     path("material/<int:pk>/eliminar_material/", login_required(DeleteMaterial.as_view()), name='delete_material'),
     path("material/agregar_material/", login_required(NewMaterial.as_view()), name='new_material'),
     path("usuarios/", login_required(ListUsuarios.as_view()), name='usuarios'),
-    path("usuarios/<int:pk>/sumar_puntos", login_required(SumaPuntos.as_view()), name='suma_puntos'),
+    path("usuarios/<str:pk>/sumar_puntos", login_required(SumaPuntos.as_view()), name='suma_puntos'),
 ]
